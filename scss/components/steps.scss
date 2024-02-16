@@ -1,0 +1,212 @@
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.steps {
+    padding: 88px 0;
+    @media #{$xl} {
+        padding: 80px 0;
+    }
+    @media #{$lg} {
+        padding: 64px 0;
+    }
+    @media #{$md} {
+        padding: 50px 0;
+    }
+    @media #{$sm} {
+        padding: 40px 0;
+    }
+    & .section-title {
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: .75s;
+    }
+    &.shown {
+        & .section-title {
+            opacity: 1;
+        }
+        & .steps__item {
+            animation-name: show;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+        & .steps__number {
+            opacity: 1;
+        }
+    }
+    &-inner {
+        margin-top: 60px;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 25px;
+        & .circle-link {
+            justify-self: center;
+            align-self: center;
+        }
+        @media #{$md} {
+            margin-top: 40px;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media #{$sm} {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+    }
+    &__item {
+        min-height: 306px;
+        padding: 26px;
+        background-color: $gray-l;
+        opacity: 0;
+        @include flex-column-center;
+        @media #{$xl} {
+            min-height: 262px;
+            padding: 24px 26px 26px 26px;
+        }
+        @media #{$lg} {
+            min-height: 280px;
+        }
+        @media #{$md} {
+            min-height: 240px;
+        }
+        @media #{$sm} {
+            order: 1;
+            min-height: initial;
+            display: grid;
+            grid-template-columns: auto 1fr;
+        }
+        @media #{$esm} {
+            padding: 28px 16px;
+        }
+        &:nth-child(2) {
+            animation-delay: 1s;
+        }
+        &:nth-child(3) {
+            animation-delay: 1.4s;
+        }
+        &:nth-child(4) {
+            animation-delay: 1.8s;
+        }
+        &:nth-child(5) {
+            animation-delay: 2.2s;
+        }
+    }
+    &__img {
+        flex: 1 0 auto;
+        max-width: 84px;
+        @media #{$xl} {
+            max-width: 60px;
+        }
+        @media #{$sm} {
+            width: 66px;
+            max-width: initial;
+            grid-row: 1/3;
+            grid-column: 1/2;
+            margin-right: 22px;
+        }
+        @media screen and (max-width: 440px) {
+            display: none;
+        }
+    }
+    &__title {
+        font-size: 30px;
+        font-weight: 400;
+        @media #{$xl} {
+            font-size: 28px;
+        }
+        & span {
+            font-size: 26px;
+        }
+        @media #{$sm} {
+            font-size: 24px;
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+    }
+    &__text {
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 1.2;
+        @media #{$xl} {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+        @media #{$sm} {
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+    }
+    &__number {
+        justify-self: center;
+        align-self: center;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+        transition-delay: 2.5s;
+        @media #{$sm} {
+            order: 2;
+            margin-left: 36px;
+        }
+        @media #{$esm} {
+            order: 2;
+            margin-left: 10px;
+        }
+        @media screen and (max-width: 340px) {
+            margin-left: 0px;
+        }
+        & span {
+            display: block;
+            font-size: 120px;
+            font-weight: 300;
+            text-transform: uppercase;
+            line-height: 1; 
+            @media #{$xl} {
+                font-size: 110px;
+            }
+            @media #{$lg} {
+                font-size: 90px;
+            }
+            @media #{$sm} {
+                font-size: 50px;
+            }
+            &:not(:first-of-type) {
+                font-size: 46px;
+                font-weight: 400;
+                padding-left: 28px;
+                @media #{$xl} {
+                    padding-left: 24px;
+                }
+                @media #{$lg} {
+                    font-size: 36px;
+                    padding-left: 14px;
+                }
+                @media #{$sm} {
+                    font-size: 24px;
+                    padding-left: 4px;
+                }
+            }
+        }
+        & sup {
+            vertical-align: top;
+            font-weight: 300;
+            font-size: 0.6em;
+        }
+    }
+}

@@ -1,0 +1,384 @@
+.popup {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: $ui-index-6;
+    animation: floatbox .5s ease-in-out;
+    padding: 90px 30px;
+    @include flex-column-center;
+    align-items: center;
+    @media #{$lg} {
+        padding: 48px 30px;
+    }
+    @media #{$md} {
+        padding: 0;
+        background: none;
+    }
+    &-inner {
+        position: relative;
+        color: $gray-d;
+        width: 1297px;
+        background: #fff;
+        overflow: auto;
+        overflow-x: hidden;
+        display: block;
+        height: auto;
+        max-height: 100%;
+        opacity: 0;
+        .popup.video & {
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            & iframe {
+                max-width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        @media #{$xl} {
+            width: 1116px;
+        }
+        @media #{$lg} {
+            width: 936px;
+        }
+        @media #{$md} {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+        }
+        &.typography {
+            padding: 72px 48px;
+            @media #{$md} {
+                padding: 36px 24px;
+            }
+            @media #{$esm} {
+                padding: 24px 16px;
+            }
+        }
+        .show & {
+            opacity: 1;
+            transition: opacity 1.27s ease-in-out;
+            @media #{$md} {
+                transition: 0;
+            }
+        }
+        .popup.video & {
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            & iframe {
+                max-width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    &__exit {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 42px;
+        height: 42px;
+        opacity: 1;
+        transition: all .3s ease-in-out;
+        &.hide {
+            opacity: 0;
+        }
+        .popup.video & {
+            @media #{$md} {
+                right: 18px;
+                top: 18px;
+            }
+        }
+        @media #{$xl} {
+            right: 18px;
+            top: 18px;
+        }
+        @media #{$lg} {
+            right: 12px;
+            top: 12px;
+        }
+        @media #{$md} {
+            right: 13px;
+            top: 16px;
+            width: 38px;
+            height: 38px;
+            background-color: $gray-l;
+            border-radius: 50%;
+        }
+        .popup.video & {
+            @media #{$md} {
+                right: 18px;
+                top: 18px;
+            }
+        }
+        @media (hover: hover) {
+            &:hover {
+                &::before, &::after {
+                    background-color: $gray-d;
+                    .popup.video & {
+                        background-color: $gray-d;
+                    }
+                }
+            }
+        }
+        &::before {
+            transform: rotate(45deg);
+            position: absolute;
+            left: 19px;
+            content: " ";
+            height: 45px;
+            width: 1px;
+            background-color: $gray;
+            transition: all .3s linear;
+            @media #{$md} {
+                height: 32px;
+                left: 18px;
+                top: 3px;
+            }
+            .popup.video & {
+                background-color: $white;
+            }
+        }
+        &::after {
+            transform: rotate(-45deg);
+            position: absolute;
+            left: 19px;
+            content: " ";
+            height: 45px;
+            width: 1px;
+            background-color: $gray;
+            transition: all .3s linear;
+            @media #{$md} {
+                left: 18px;
+                top: 3px;
+                height: 32px;
+            }
+            .popup.video & {
+                background-color: $white;
+            }
+        }
+    }
+    &-callback {
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+        @media #{$md} {
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media #{$sm} {
+            height: auto;
+            overflow-y: auto;
+        }
+    }
+    &-left {
+        flex: 1 0 592px;
+        height: auto;
+        display: flex;
+        @media #{$xl} {
+            flex: 1 0 532px;
+        }
+        @media #{$lg} {
+            flex: 1 0 474px;
+        }
+        @media #{$md} {
+            flex: initial;
+            width: 100%;
+        }
+        @media #{$sm} {
+            max-height: 80vh;
+            justify-content: center;
+            & .popup__video {
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                width: auto;
+            }
+        }
+    }
+    &__video {
+        height: auto;
+        width: 100%;
+        height: 100%;
+        @media #{$md} {
+            background-color: #dbdbdb;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        & img, & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            @media #{$md} {
+                width: 368px;
+                max-width: 100%;
+            }
+        }
+    }
+    &-right {
+        padding: 72px 58px;
+        overflow: auto;
+        @media #{$xl} {
+            padding: 58px 48px;
+        }
+        @media #{$lg} {
+            padding: 36px;
+        }
+        @media #{$md} {
+            padding: 50px 24px;
+        }
+        @media #{$sm} {
+            padding: 40px 24px;
+        }
+        @media #{$esm} {
+            padding: 40px 16px;
+        }
+    }
+    &-contacts {
+        padding-bottom: 50px;
+        border-bottom: 1px solid $gray;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @media #{$xl} {
+            padding-bottom: 30px;
+        }
+        @media #{$lg} {
+            padding-bottom: 28px;
+        }
+        @media #{$md} {
+            align-items: center;
+        }
+        @media #{$esm} {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+    }
+    &__title {
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: $black-0;
+        @media #{$xl} {
+            font-size: 24px;
+        }
+        @media #{$lg} {
+            font-size: 22px;
+        }
+        @media #{$md} {
+            text-align: center;
+            font-size: 24px;
+        }
+    }
+    &__text {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: $black-0;
+        @media #{$xl} {
+            margin-top: 12px;
+        }
+        @media #{$lg} {
+            font-size: 18px;
+        }
+        @media #{$md} {
+            margin-top: 12px;
+            text-align: center;
+        }
+        &--margin {
+            margin-top: 16px;
+        }
+    }
+    &__links {
+        margin-top: 20px;
+        @include flex-center;
+        justify-content: center;
+        text-align: center;
+        gap: 22px;
+        @media #{$sm} {
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+        }
+    }
+    &__link {
+        font-size: 22px;
+        letter-spacing: 1.1px;
+        @include underline($gray, 1px);
+        @media #{$lg} {
+            font-size: 17px;
+            letter-spacing: 0.9px;
+        }
+        @media #{$md} {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        &:first-of-type {
+            letter-spacing: initial;
+            font-size: 23px;
+            letter-spacing: 0px;
+            @media #{$lg} {
+                font-size: 18px;
+                letter-spacing: 0px;
+            }
+            @media #{$md} {
+                letter-spacing: 0px;
+                font-size: 20px;
+            }
+            @media #{$sm} {
+                width: 100%;
+            }
+        }
+    }
+    &-form {
+        padding-top: 50px;
+        @media #{$xl} {
+            padding-top: 30px;
+        }
+        @media #{$lg} {
+            padding-top: 26px;
+        }
+        @media #{$md} {
+            padding-top: 30px;
+        }
+    }
+}
+@keyframes floatbox {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes floatbox_inset {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+  }
+}

@@ -1,0 +1,286 @@
+.history {
+    padding: 58px 0 88px;
+    background-color: $black-0;
+    color: $white;
+    @media #{$lg} {
+        padding: 40px 0 60px;
+    }
+    @media #{$md} {
+        padding: 25px 0 50px;
+    }
+    @media #{$sm} {
+        padding: 40px 0 50px;
+        text-align: center;
+    }
+    & .section-title {
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+    }
+    &.shown {
+        & .section-title {
+            opacity: 1;
+        }
+        & .history__slider {
+            opacity: 1;
+        }
+        & .history__title {
+            opacity: 1;
+        }
+        & .history__text {
+            opacity: 1;
+        }
+    }
+    &__inner {
+        display: flex;
+        position: relative;
+        gap: 100px;
+        @media #{$xl} {
+            gap: 76px;
+        }
+        @media #{$lg} {
+            display: block;
+        }
+    }
+    &__description {
+        flex: 0 0 600px;
+        @media #{$xl} {
+            flex: 0 0 492px;
+        }
+        @media #{$lg} {
+            display: flex;
+            gap: 124px;
+        }
+        @media #{$md} {
+            gap: 32px;
+            position: relative;
+        }
+    }
+    &__description-text {
+        @media #{$md} {
+            overflow: hidden;
+            &.open {
+                max-height: 1500px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    &__more {
+        display: none;
+        border: 0;
+        background: none;
+        color: $gray;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 1.6;
+        letter-spacing: 1.2px;
+        padding: 0;
+        @include hover {
+            color: $white;
+        }
+        @media #{$sm} {
+            margin-top: 20px;
+            display: block;
+        }
+    }
+    &__title {
+        max-width: 352px;
+        font-size: 34px;
+        font-weight: 300;
+        line-height: 1.1;
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        @media #{$lg} {
+            font-size: 30px;
+        }
+        @media #{$md} {
+            max-width: 324px;
+        }
+        @media #{$sm} {
+            margin: 0 auto;
+        }
+    }
+    &__text {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.3;
+        margin-top: 22px;
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        &:not(:first-of-type) {
+            margin-top: 16px;
+        }
+        @media #{$xl} {
+            font-size: 19px;
+        }
+        @media #{$lg} {
+            font-size: 18px;
+        }
+        @media #{$md} {
+            display: block;
+        }
+        @media #{$sm} {
+            &.hide {
+                max-height: 0;
+                overflow: hidden;
+                margin-top: 0;
+            }
+            &.show {
+                max-height: 700px;
+                margin-top: 16px;
+            }
+        }
+    }
+    &__photo {
+        margin-top: 95px;
+        position: relative;
+        &.shown {
+            & .history__img {
+                transition: all 1s linear;
+                transition-delay: 1.3s;
+                opacity: 1;
+            }
+            & .history__quote {
+                transition: all 1s linear;
+                transition-delay: 2.6s;
+                opacity: 1;
+            }
+        }
+        @media #{$xl} {
+            margin-top: 61px;
+        }
+        @media #{$lg} {
+            margin-top: 0;
+            flex: 0 0 315px;
+        }
+        @media #{$sm} {
+            display: none;
+        }
+    }
+    &__img {
+        max-width: 382px;
+        opacity: 0;
+        @media #{$xl} {
+            max-width: 315px;
+        }
+    }
+    &__quote {
+        position: absolute;
+        top: 90px;
+        right: 9px;
+        width: 327px;
+        opacity: 0;
+        @media #{$xl} {
+            top: 72px;
+            width: 263px;
+        }
+        @media #{$lg} {
+            display: none;
+        }
+    }    
+    &__slider {
+        height: 898px;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        @media #{$lg} {
+            margin-top: 64px;
+            height: 903px;
+        }
+        @media #{$sm} {
+            height: 80vh;
+            height: 80dvh;
+        }
+    }
+    & .swiper-scrollbar.swiper-scrollbar-vertical {
+        right: -41px;
+        height: 898px;
+        @media #{$lg} {
+            bottom: 0;
+            top: auto;
+            height: 903px;
+            right: -7px;
+        }
+        @media #{$sm} {
+            height: 80vh;
+            height: 80dvh;
+            right: -23px;       
+        }
+        @media #{$esm} {
+            right: -20px;
+        }
+    }
+/*     &__arrows {
+        position: absolute;
+        height: calc(851px + 80px);
+        width: 48px;
+        right: calc((100% - 600px) / 2 - 24px);
+        top: -40px;
+        @media #{$lg} {
+            display: none;
+        }
+    } */
+    &__years {
+        padding-right: 41px;
+        @media #{$xl} {
+            padding-right: 33px;
+        }
+        @media #{$lg} {
+            padding-right: 27px;
+            max-width: 100%;
+        }
+        @media #{$sm} {
+            position: relative;
+            width: calc(100% + 13px);
+            max-width: initial;
+        }
+    }
+    &__year {
+        font-size: 22px;
+        line-height: 1.2;
+        padding: 22px 0;
+        position: relative;
+        height: auto;
+        @media #{$xl} {
+            font-size: 20px;
+        }
+        @media #{$lg} {
+            padding-right: 25px;
+        }
+        @media #{$sm} {
+            padding: 22px;
+            text-align: center;
+        }
+        @media #{$esm} {
+            padding: 22px 10px;
+            text-align: center;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, #7B7B7B 0%, rgba(123, 123, 123, 0.00) 100%);
+            @media #{$sm} {
+                background: linear-gradient(90deg, rgba(123, 123, 123, 0.00) 0%, #7B7B7B 50%, rgba(123, 123, 123, 0.00) 100%);   max-height: 500px;
+            }
+        }
+        &:first-child {
+            padding-top: 0;
+            &::before {
+                display: none;
+            }
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}

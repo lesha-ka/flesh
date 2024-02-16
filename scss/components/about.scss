@@ -1,0 +1,283 @@
+.about {
+    position: relative;
+    z-index: $ui-index-2;
+    padding-top: 116px;
+    margin-bottom: -55px;
+    overflow: hidden;
+    @media #{$xl} {
+        padding-top: 88px;
+        margin-bottom: -21px;
+    }
+    @media #{$lg} {
+        margin: 0;
+        padding: 64px 0;
+    }
+    @media #{$md} {
+        padding: 50px 0;
+    }
+    @media #{$sm} {
+        padding: 40px 0;
+    }
+    @media #{$esm} {
+        padding: 20px 0 40px;
+    }
+    &__inner {
+        display: flex;
+        column-gap: 86px;
+        @media #{$xl} {
+            column-gap: 60px;
+        }
+        @media #{$lg} {
+            column-gap: 53px;
+        }
+        @media #{$md} {
+            display: block;
+            text-align: center;
+        }
+    }
+    &__photo {
+        flex: 1 0 550px;
+        max-width: 550px;
+        max-height: 695px;
+        transform: translateX(636px);
+        opacity: 0;
+        .shown & {
+            animation: appearAndMove 2.5s forwards;
+            @media #{$xl} {
+                animation: appearAndMoveXl 2.5s forwards;
+            }
+            @media #{$lg} {
+                animation: appearAndMoveLg 2.5s forwards;
+            }
+            @media #{$md} {
+                animation: initial;
+            }
+        }
+        @media #{$xl} {
+            flex: 1 0 460px;
+            max-width: 460px;
+            max-height: 581px;
+            transform: translateX(520px);
+        }
+        @media #{$lg} {
+            max-width: 374px;
+            max-height: 473px;
+            transform: translateX(427px);
+        }
+        @media #{$md} {
+            max-width: 324px;
+            margin: 0 auto;
+            transform: initial;
+            animation: initial;
+            opacity: 1;
+        }
+        @media #{$sm} {
+            max-width: 338px;
+        }
+        & img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__description {
+        margin-top: 28px;
+        color: $black-0;
+        @media #{$xl} {
+            margin-top: 21px;
+        }
+        @media #{$lg} {
+            margin-top: 0;
+            align-self: flex-end;
+        }
+        @media #{$md} {
+            margin-top: 34px;
+        }
+        @media #{$esm} {
+            margin-top: 30px;
+        }
+    }
+    &__title {
+        font-size: 66px;
+        font-weight: 300;
+        line-height: 1;
+        text-transform: capitalize;
+        letter-spacing: 1.32px;
+        position: relative;
+        max-width: 440px;
+        transform: translateX(636px);
+        opacity: 0;
+        .shown & {
+            animation: appearAndMove 2.5s forwards;
+            @media #{$xl} {
+                animation: appearAndMoveXl 2.5s forwards;
+            }
+            @media #{$lg} {
+                animation: appearAndMoveLg 2.5s forwards;
+            }
+            @media #{$md} {
+                animation: initial;
+            }
+        }
+        @media #{$xl} {
+            font-size: 50px;
+            max-width: 400px;
+            letter-spacing: 1px;
+            transform: translateX(520px);
+        }
+        @media #{$lg} {
+            transform: translateX(427px);
+        }
+        @media #{$md} {
+            font-size: 40px;
+            letter-spacing: 0.8px;
+            max-width: 100%;
+            text-align: center;
+            transform: initial;
+            animation: initial;
+            opacity: 1;
+        }
+        @media #{$sm} {
+            font-size: 30px;
+        }   
+        & span {
+            position: absolute;
+            left: 44px;
+            top: -10px;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 2.52px;
+            text-transform: uppercase;
+            @media #{$xl} {
+                left: 60px;
+            }
+            @media #{$md} {
+                font-size: 16px;
+                position: initial;
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+    &__subtitle {
+        margin-top: 28px;
+        font-weight: 450;
+        font-size: 24px;
+        opacity: 0;
+        @media #{$md} {
+            opacity: 1;
+        }
+        .shown & {
+            opacity: 1;
+            transition: opacity 1s 2.5s; 
+        }
+        @media #{$xl} {
+            font-size: 22px;
+        }
+    }
+    &__text {
+        margin-top: 12px;
+        font-size: 20px;
+        line-height: 1.2;
+        opacity: 0;
+        @media #{$md} {
+            opacity: 1;
+        }
+        .shown & {
+            opacity: 1;
+            transition: opacity 1s 2.5s;
+        }
+        @media #{$xl} {
+            font-size: 18px;
+        }
+        @media #{$lg} {
+            &:not(:first-of-type) {
+                display: none;
+            }
+        }
+    }
+    &__link {
+        display: inline-block;
+        margin-top: 40px;
+        color: $gray;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 1.6;
+        letter-spacing: 1.4px;
+        position: relative;
+        padding-right: 30px;
+        opacity: 0;
+        @media #{$md} {
+            opacity: 1;
+        }
+        .shown &{
+            opacity: 1;
+            transition: opacity 1s 2.5s;
+        }
+        @include hover {
+            color: $black;
+            &::after {
+                background-color: $black;
+            }
+        }
+        @media #{$xl} {
+            margin-top: 32px;
+        }
+        @media #{$lg} {
+            margin-top: 28px;
+        }
+        &::after {
+            position: absolute;
+            content: '';
+            right: 0;
+            top: calc(50% - 4.5px);
+            width: 17px;
+            height: 9px;
+            @include svg-mask(arrow);
+            background-color: $gray;
+            transition: all .3s ease-in-out;
+        }
+    }
+}
+@keyframes appearAndMove {
+    0% {
+        opacity: 0;
+        transform: translateX(636px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(636px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes appearAndMoveXl {
+    0% {
+        opacity: 0;
+        transform: translateX(520px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(520px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  @keyframes appearAndMoveLg {
+    0% {
+        opacity: 0;
+        transform: translateX(427px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(427px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}

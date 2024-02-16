@@ -1,0 +1,196 @@
+.clinics {
+    padding: 88px 0;
+    background-color: $black-0;
+    color: $white;
+    @media #{$lg} {
+        padding: 66px 0;
+    }
+    @media #{$md} {
+        padding: 50px 0;
+    }
+    @media #{$sm} {
+        padding: 40px 0;
+    }
+    & .section-title {
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 0.5s;
+    }
+    &.shown {
+        & .section-title {
+            opacity: 1;
+        }
+        & .clinics__slider {
+            opacity: 1;
+        }
+    }
+    &__slider {
+        margin-top: 70px;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        @media #{$xl} {
+            margin-top: 66px;
+        }
+        @media #{$lg} {
+            position: relative;
+        }
+        @media #{$md} {
+            margin-top: 38px;
+        }
+    }
+    &__item {
+        display: flex;
+        gap: 75px;
+        @media #{$xl} {
+            gap: 50px;
+        }
+        @media #{$lg} {
+            gap: 38px;
+        }
+    }
+    &__left {
+        display: flex;
+        flex-direction: column;
+        max-width: 585px;
+        @media #{$xl} {
+            max-width: 495px;
+        }
+        @media #{$lg} {
+            max-width: 435px;
+        }
+        @media #{$md} {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+    &__name {
+        font-size: 30px;
+        letter-spacing: 5.1px;
+        text-transform: uppercase;
+        line-height: 1.2;
+        @media #{$xl} {
+            font-size: 24px;
+            letter-spacing: 4.08px;
+        }
+        @media #{$md} {
+            order: 2;
+            margin-top: 36px;
+        }
+        @media #{$sm} {
+            margin-top: 28px;
+            font-size: 20px;
+        }
+        & span {
+            font-size: 15px;
+            line-height: 1.8;
+            letter-spacing: 2.55px;
+            @media #{$md} {
+                vertical-align: top;
+            }
+            @media #{$sm} {
+                font-size: 12px;
+                vertical-align: middle;
+            }
+        }
+    }
+    &__text {
+        margin-top: 18px;
+        font-size: 18px;
+        line-height: 1.2;
+        @media #{$lg} {
+            margin-top: 16px;
+        }
+        @media #{$md} {
+            order: 3;
+        }
+        & a {
+            position: relative;
+            display: inline;
+            overflow: visible;
+            transition: background-size 0.75s;
+            background: linear-gradient($white, $white) no-repeat left bottom;
+            background-size: 100% 1px;
+        }
+    }
+    &__sublink {
+        display: block;
+        margin-top: 26px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 2.38px;
+        text-transform: uppercase;
+        color: $gray;
+        @include hover {
+            color: $white;
+        }
+        @media #{$xl} {
+            margin-top: 20px;
+            font-size: 14px;
+            letter-spacing: 2.38px;
+        }
+        @media #{$md} {
+            order: 4;
+        }
+    }
+    &__img {
+        flex: 1 0 auto;
+        margin-top: 41px;
+        align-self: flex-end;
+        @include flex-column-end;
+        @media #{$md} {
+            order: 1;
+            margin: 0 auto;
+            width: calc(100% - 74px);
+        }
+        @media #{$sm} {
+            width: calc(100% - 52px);
+        }
+        @media #{$esm} {
+            width: calc(100% - 42px);
+        }
+    }
+    &__right {
+        @media #{$lg} {
+            margin-top: 60px;
+            max-height: 397px;
+            align-self: flex-end;
+        }
+        @media #{$md} {
+            display: none;
+        }
+    }
+    &__pagination {
+        display: none;
+        @media #{$md} {
+            display: block;
+        }
+    }
+    &__arrows {
+        display: none;
+        @media #{$lg} {
+            display: flex;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: $ui-index-2;
+        }
+        @media #{$md} {
+            width: 100%;
+            justify-content: space-between;
+            top: calc(346px / 2);
+            transform: translateY(-50%);
+        }
+        @media #{$sm} {
+            top: calc(239px / 2);
+        }
+        @media #{$esm} {
+            top: calc(200px / 2);
+        }
+        @media screen and (max-width: 414px) {
+            top: calc(165px / 2);
+        }
+    }
+}

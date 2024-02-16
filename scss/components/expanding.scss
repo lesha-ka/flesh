@@ -1,0 +1,200 @@
+.expanding  {
+    padding: 88px 0;
+    color: $black-0;
+    @media #{$lg} {
+        padding: 65px 0;
+    }
+    @media #{$md} {
+        padding: 50px 0;
+    }
+    @media #{$sm} {
+        padding: 40px 0;
+    }
+    & .section-title {
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: .5s;
+    }
+    &.shown {
+        & .section-title {
+            opacity: 1;
+        }
+        & .expanding__list {
+            opacity: 1;
+        }
+    }
+    &__list {
+        margin-top: 60px;
+        opacity: 0;
+        transition: all 1s linear;
+        transition-delay: 1s;
+        @media #{$lg} {
+            margin-top: 50px;
+        }
+        @media #{$md} {
+            margin-top: 40px;
+        }
+        @media #{$sm} {
+            margin-top: 30px;
+        }
+    }
+    &__list-item {
+        background: $white;
+        border: 1px solid $black-0;
+        border-radius: 32px;
+        margin-bottom: 30px;
+        transition: all .3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include hover {
+            background-color: #e6e6e6;
+        }
+        @media #{$sm} {
+            border-radius: 38px;
+            margin-bottom: 22px;
+        }
+        @media #{$esm} {
+            border-radius: 28px;
+        }
+        &.open {
+            @include hover {
+                background-color: $white;
+            }
+            & .expanding__name::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.4;
+        max-width: 98%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 21px 34px;
+        @media #{$sm} {
+            padding: 22px;
+        }
+        &::after {
+            position: absolute;
+            right: 18px;
+            top: 25px;
+            content: "";
+            width: 22px;
+            height: 22px;
+            background: url(../img/icons/plus.svg) center no-repeat;
+            transition: all .3s ease-in-out;
+            @media #{$sm} {
+                top: 23px;
+            }
+            @media #{$esm} {
+                top: 22px;
+                right: 14px;
+            }
+        }
+        &.open {
+            white-space: wrap;
+            padding: 21px 34px 0;
+            @media #{$sm} {
+                padding: 22px 22px 0;
+            }
+            & + .expanding__text {
+                transition: max-height .5s ease-in-out;
+                max-height: 1001px;
+                opacity: 1;
+                z-index: 1;
+                height: auto;
+                margin: 22px 0 34px;
+            }
+        }
+    }
+    &__text {
+        font-weight: 500;
+        position: relative;
+        bottom: 0;
+        font-size: 18px;
+        line-height: 1.4;
+        padding-bottom: 0;
+        max-height: 0;
+        height: 0;
+        max-height: 0;
+        opacity: 0;
+        z-index: -1;
+        padding: 0 34px;
+        @media #{$sm} {
+            padding: 0 22px;
+        }
+        & h3 {
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.5;
+            @media #{$md} {
+                font-size: 18px;
+            }
+            &:first-child {
+                margin-top: 0;
+            }
+            & + * {
+                margin-top: 20px;
+            }
+        }
+        & h5 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 35px 0 10px;
+            @media #{$md} {
+                font-size: 16px;
+            }
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        & p {
+            max-width: 1051px;
+            margin-top: 14px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.6;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        & ul {
+            margin-top: 0;
+            max-width: 1051px;
+            & li {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 1.6;
+                text-indent: 10px;
+                position: relative;
+                padding-left: 26px;
+                text-indent: 0;
+                @media #{$md} {
+                    font-size: 16px;
+                }
+                @media #{$esm} {
+                    font-size: 14px;
+                }
+                &::before {
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    left: 10px;
+                    top: 11px;
+                    content: "";
+                    border-radius: 50%;
+                    background: $black-0;
+                }
+            }
+        }
+
+    }
+}

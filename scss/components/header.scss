@@ -1,0 +1,222 @@
+@keyframes grow {
+    0% {
+        width: 4px;
+        height: 4px;
+    }
+    50% {
+        width: 16px;
+        height: 16px;
+    }
+    100% {
+        width: 4px;
+        height: 4px;
+    }
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $ui-index-3;
+    background-color: $black-0;
+    color: $white;
+    height: 0;
+    transition: height 1.25s ease-in-out;
+    transition-delay: 1.15s;
+    overflow: hidden;
+    .fixed-header & {
+        top: -100%;
+        transition: top 1s ease-in-out;
+        &.fixed {
+            top: 0;
+        }
+    }
+    @media #{$md} {
+        height: 71px;
+    }
+    @media #{$sm} {
+        height: 60px;
+    }
+    .content-news &, &.shown {
+        height: 107px;
+        @media #{$xl} {
+            height: 88px;
+        }
+        @media #{$md} {
+            height: 71px;
+        }
+        @media #{$sm} {
+            height: 60px;
+        }
+    }
+    &-inner {
+        @include flex-center-space;
+        padding: 34px 30px;
+        transform: translateY(-100%);
+        transition: transform 1.25s ease-in-out;
+        transition-delay: 2.4s;
+        .content-news &, &.shown {
+            transform: translateY(0);
+        }
+        @media #{$xl} {
+            padding: 25px 27px;
+        }
+        @media #{$md} {
+            padding: 20px 24px;
+            transform: initial;
+        }
+        @media #{$sm} {
+            padding: 17px 24px;
+        }
+        @media #{$esm} {
+            min-height: 31px;
+        }
+    }
+    &__callback {
+        width: 330px;
+        padding-left: 62px;
+        position: relative;
+        font-size: 16px;
+        line-height: 1.2;
+        min-height: 38px;
+        & span:not(:first-child) {
+            transition: none;
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        & span {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        @media #{$md} {
+            display: none;
+        }
+        @include hover {
+            & span {
+                opacity: 0;
+                position: absolute;
+                transition: all .3s ease-in-out;
+            }
+            & span:not(:first-child) {
+                opacity: 1;
+                line-height: 38px;
+                transition: all 1s ease-in-out;
+                display: block;
+                position: initial;
+                text-transform: uppercase;
+            }
+            &::before {                
+                width: 280px;
+                border-radius: 50px;
+                transition: width 1s ease-in-out;
+            }
+            &::after {
+                animation-play-state: paused;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            top: -4px;
+            left: 0;
+            border-radius: 50%;
+            border: 1px solid $white;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            top: 17px;
+            left: 21px;
+            transform: translate(-50%, -50%);
+            margin-top: 2px; 
+            margin-left: 2px; 
+            border-radius: 50%;
+            background-color: $white;
+            animation: grow 4s infinite linear;
+        }
+    }
+    &__logo {
+        @media #{$xl} {
+            max-width: 176px;
+        }
+        @media #{$sm} {
+            max-width: 136px;
+        }
+    }
+    &__burger {
+        width: 80px;
+        margin-left: 250px;
+        @media #{$esm} {
+            width: auto;
+            margin-left: 0;
+        }
+        &-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 7px 0;
+            opacity: 1;
+            & span {
+                width: 69px;
+                height: 1px;
+                border-radius: 1px;
+                background-color: $white;
+                @media #{$sm} {
+                    width: 41px;   
+                }
+                &:not(:first-child) {
+                    margin-top: 15px;
+                    width: 48px;
+                    @media #{$sm} {
+                        margin-top: 10px;
+                        width: 30px; 
+                    }
+                }
+            }
+            &.hide {
+                opacity: 0;
+            }
+            .show & {
+                position: fixed;
+                top: 26px;
+                right: 26px;
+                z-index: $ui-index-6;
+                width: 66px;
+                height: 66px;
+                @include hover {
+                    & span {
+                        background-color: $white;
+                    }
+                }
+                @media #{$sm} {
+                    width: 34px;
+                    height: 34px;
+                    top: 17px;
+                    right: 21px;
+                }
+                & span {
+                    width: 46px;
+                    background-color: $gray;
+                    transition: all .3s ease-in-out;
+                    transform: rotate(45deg) translateY(12px);
+                    @media #{$sm} {
+                        width: 31px;   
+                        transform: rotate(45deg) translateY(8px);
+                    }
+                    &:not(:first-child) {
+                        transform: rotate(-45deg) translateY(-11px);
+                        @media #{$sm} {
+                            transform: rotate(-45deg) translateY(-8px);  
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,394 @@
+@keyframes move {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.descriptor {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    &--news {
+        height: auto;
+        min-height: 604px;
+        margin-top: 105px;
+        display: flex;
+        align-items: stretch;
+        &::after {
+            display: none;
+        }
+    }
+    @media #{$xl} {
+        &--news {
+            min-height: 510px;
+            margin-top: 88px;
+        }
+    }
+    @media #{$lg} {
+        &--news {
+            min-height: 428px;
+            margin-top: 88px;
+        }
+    }
+    @media #{$md} {
+        min-height: 697px;
+        padding-top: 60px;
+        height: auto;
+        display: flex;
+        background-color: $black-0;
+        flex-direction: row;
+        &--news {
+            padding-top: 0;
+            min-height: 581px;
+            margin-top: 60px;
+        }
+    }
+    @media #{$sm} {
+        min-height: 540px;
+        display: block;
+        border: 24px solid $black-0;
+        border-top: 0 solid $black-0;
+        border-bottom: 0;
+        &--news {
+            min-height: 464px;
+            display: flex;
+            border-bottom: 24px solid $black-0;
+        }
+    }
+    @media #{$esm} {
+        min-height: 430px;
+        &--news {
+            min-height: 318px;
+        }
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $ui-index-2;
+        background: rgba(0, 0, 0, 0.50);
+        width: 100%;
+        height: 100%;
+    }
+    &--about::before {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.69) -1.12%, rgba(0, 0, 0, 0.50) 11.94%, rgba(0, 0, 0, 0.34) 26.86%, rgba(0, 0, 0, 0.00) 88.42%);
+    }
+    &__img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: $ui-index-1;
+        overflow: hidden;
+        & video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: $ui-index-1;
+            object-fit: cover;
+            object-position: center;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $black-0;
+            transition: all 1.25s linear;
+            z-index: $ui-index-1;
+            @media #{$md} {
+                height: 24px;
+            }
+            @media #{$esm} {
+                height: 16px;
+            }
+        }
+        .descriptor--news & {
+            top: 0;
+            &::after {
+                height: 30px;
+                @media #{$xl} {
+                    height: 27px;
+                }
+                @media #{$lg} {
+                    height: 23px;
+                }
+                @media #{$sm} {
+                    display: none;
+                }
+            }
+        }
+        &.shown {
+            &::after {
+                height: 30px;
+                @media #{$xl} {
+                    height: 27px;
+                }
+                @media #{$lg} {
+                    height: 23px;
+                }
+                @media #{$sm} {
+                    display: none;
+                }
+            }
+        }
+        @media #{$sm} {
+            display: block;
+            height: 464px;
+            position: relative;
+            .descriptor--news & {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        @media #{$esm} {
+            height: 379px;
+        }
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    & .dot {
+        position: fixed;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: $crimson;
+        pointer-events: none; 
+        z-index: $ui-index-2;
+    }
+    &__inner {
+        height: 100%;
+        text-align: center;
+        @include flex-column-end;
+        padding: 50px;
+        padding-bottom: 100px;
+        color: $white;
+        border: 0px solid $black-0;
+        transition: all 1.25s linear;
+        position: relative;
+        z-index: $ui-index-2;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            height: 24px;
+            width: 24px;
+            bottom: 50px;
+            left: calc(50% - 12px);
+            background-image: url('../img/icons/arrow-descriptor.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0;
+            transition: opacity .3s linear;
+            transition-delay: 3.5s;
+            animation: move 1.5s infinite;
+            @media #{$md} {
+                display: none;
+            }
+        }
+        .descriptor--news & {
+            height: auto;
+            width: 100%;
+            border: 30px solid $black-0;
+            border-top: 0 solid $black-0;
+            border-bottom: 0;
+            &::after {
+                display: none;
+            }
+        }
+        @media #{$xl} {
+            .descriptor--news & {
+                border: 27px solid $black-0;
+                border-top: 0 solid $black-0;
+                border-bottom: 0;
+            }
+        }
+        @media #{$lg} {
+            .descriptor--news & {
+                border: 23px solid $black-0;
+                border-top: 0 solid $black-0;
+                border-bottom: 0;
+            }
+        }
+        @media #{$md} {
+            padding-bottom: 55px;
+            width: 100%;
+            height: auto;
+            border: 24px solid $black-0;
+            border-top: 0 solid $black-0;
+            border-bottom: 0;
+        }
+        @media #{$sm} {
+            padding: 0;
+            margin-top: -25px;
+            border: 0;
+            .descriptor--news & {
+                padding-top: 0;
+                flex: 1;
+                padding-bottom: 30px;
+            }
+            &.descriptor__inner--index  {
+                margin-top: -50px;
+            }
+        }
+        @media #{$esm} {
+            border: 16px solid $black-0;
+            border-top: 0 solid $black-0;
+            border-bottom: 0;
+            &.descriptor__inner--index  {
+                margin-top: -40px;
+            }
+        }
+        @media screen and (max-width: 440px) {
+            margin-top: -35px;
+        }
+        &.shown {
+            border: 30px solid $black-0;
+            border-top: 0 solid $black-0;
+            border-bottom: 0;
+            @media #{$xl} {
+                border: 27px solid $black-0;
+                border-top: 0 solid $black-0;
+                border-bottom: 0;
+            }
+            @media #{$lg} {
+                border: 23px solid $black-0;
+                border-top: 0 solid $black-0;
+                border-bottom: 0;
+            }
+            @media #{$sm} {
+                border: 0;
+            }
+            &::after {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+    }
+    &__inner-text {
+        transform: translateY(220%);
+        transition: transform 1.25s ease-in-out;
+        transition-delay: 2.4s;
+        @media #{$md} {
+            transform: initial;
+        }
+        .shown & {
+            transform: translateY(0);
+        }
+    }
+    &__suptitle {
+        color: $white;
+        color: rgba(255, 255, 255, .5);
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 300;
+        letter-spacing: 4.32px;
+        text-transform: uppercase;
+        @media #{$xl} {
+            font-size: 26px;
+        }
+        @media #{$md} {
+            font-size: 18px;
+            letter-spacing: 2.16px;
+        }
+        @media #{$esm} {
+            font-size: 16px;
+            letter-spacing: 1.92px;
+        }
+    }
+    &__title {
+        font-size: 66px;
+        font-weight: 300;
+        line-height: 1.1;
+        text-transform: uppercase;
+        position: relative;
+        z-index: $ui-index-2;
+        &--service {
+            font-size: 90px;
+            letter-spacing: 10.8px;
+        }
+        .descriptor--news & {
+            max-width: 991px;
+            margin: 0 auto;
+            text-transform: none;
+        }
+        .descriptor--about & {
+            text-transform: capitalize;
+        }
+        @media #{$xl} {
+            font-size: 60px;
+            .descriptor--news & {
+                font-size: 50px;
+            }
+        }
+        @media #{$lg} {
+            .descriptor--news & {
+                font-size: 44px;
+            }
+        }
+        @media #{$md} {
+            font-size: 46px;
+            .descriptor--news & {
+                font-size: 44px;
+            }
+            &.descriptor__title--service {
+                font-size: 40px;
+            }
+        }
+        @media #{$sm} {
+            font-size: 40px;
+            .descriptor--news & {
+                font-size: 26px;
+                max-width: 360px;
+            }
+        }
+        @media #{$esm} {
+            &.descriptor__title--service {
+                font-size: 30px;
+            }
+        }
+        &:not(:first-child) {
+            margin-top: 8px;
+        }
+    }
+    &__text {
+        max-width: 1074px;
+        margin: 20px auto 0;
+        font-size: 24px;
+        line-height: 1.2;
+        @media #{$xl} {
+            font-size: 22px;
+            max-width: 924px;
+        }
+        @media #{$lg} {
+            font-size: 20px;
+            max-width: 776px;
+        }
+        @media #{$md} {
+            max-width: 556px;
+            font-size: 18px;
+        }
+        @media #{$sm} {
+            max-width: 490px;
+            .descriptor--news & {
+                max-width: 404px;
+            }
+        }
+    }
+}

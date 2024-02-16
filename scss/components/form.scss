@@ -1,0 +1,231 @@
+.callback__form {
+    & .response, & .errortext {
+        display: none;
+    }
+}
+.form {
+    &__row {
+        @include flex-center;
+        column-gap: 24px;
+        @media #{$esm} {
+            flex-direction: column;
+            gap: 30px;
+        }
+        &:not(:first-of-type) {
+            margin-top: 23px;
+        }
+        &--textarea {
+            &:not(:first-of-type) {
+                margin-top: 28px;
+            }
+        }
+        &--agreement {
+            justify-content: space-between;
+            &:not(:first-of-type) {
+                margin-top: 24px;
+            }
+        }
+        .popup-form &:first-of-type {
+            margin-top: 35px;
+        }
+    }
+    &__block {
+        position: relative;
+        width: 100%;
+    }
+    &__input {
+        padding: 15px 10px;
+        border-radius: 6px;
+        border: 1px solid $white;
+        color: $white;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        .popup-form & {
+            border: 1px solid $gray-5;
+            color: $black-0;
+            &::placeholder {
+                color: $gray-5;
+            }
+        }
+    }
+    &__textarea {
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid $white;
+        color: $white;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        height: 132px;
+        &::placeholder {
+            color: $white;
+        }
+        .popup-form & {
+            border: 1px solid $gray-5;
+            color: $black-0;
+            height: 97px;
+            &::placeholder {
+                color: $gray-5;
+            }
+        }
+    }
+    &__placeholder {
+        padding: 4px;
+        position: absolute;
+        top: -12px;
+        left: 12px;
+        background-color: $black-0;
+        .popup-form & {
+            background-color: $white;
+            color: $black-0;
+        }
+    }
+    &__error {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        top: 100%;
+        left: 0;
+        transition: all .3s ease-in-out;
+        color: $crimson;
+        .wrong & {
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+    &__file {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+    &__file-label {
+        position: relative;
+        display: block;
+        font-size: 16px;
+        padding: 15px 21px;
+        border-radius: 9px;
+        border: 1px solid $white;
+        color: $white;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        width: 100%;
+        z-index: $ui-index-2;
+        cursor: none;
+        @include hover {
+            &::before {
+                background-color: #666666;
+            }
+            .popup-form & {
+                &::before {
+                    background-color: #666666;
+                }
+            }
+        }
+        .popup-form & {
+            padding: 17px 72px 17px 22px;
+            border: 1px solid $gray-5;
+        }
+        & span {
+            position: absolute;
+            right: 19px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &::before {
+            content: ' ';
+            z-index: -1;
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 8px);
+            top: 4px;
+            left: 5px;
+            border-radius: 6px;
+            background-color: $gray-d;
+            transition: all .3s ease-in-out;
+            .popup-form & {
+                background-color: $gray;
+            }
+        }
+    }
+    &__file-item {
+        margin-top: 8px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 22px;
+        &:first-child {
+            margin-top: 13px;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            @include svg-mask('check');
+            mask-size: contain;
+            background-color: $white;
+            .popup & {
+                background-color: $black-0;
+            }
+        }
+        &.error::before {
+            @include svg-mask('error');
+            mask-size: contain;
+            background-color: #E06060;
+        }
+    }
+    &__file-name {
+        font-size: 14px;
+        line-height: 1.3;
+        color: $white;
+        padding-right: 5px;
+        .popup & {
+            background-color: $black-0;
+        }
+    }
+    &__file-reset {
+        background: 0;
+        outline: 0;
+        border: 0;
+        margin-left: auto;
+        display: block;
+        width: 20px;
+        height: 20px;
+        @include svg-bg('reset');
+        background-size: 10px;
+        cursor: none;
+    }
+    &__agreement {
+        font-size: 16px;
+        color: $black-0;
+        .analysis__form & {
+            color: $white;
+        }
+        & span {
+            font-weight: 600;
+        }
+    }
+    &__btn {
+        background-color: transparent;
+        border-radius: 45px;
+        border: 3px solid #ADADAD;
+        padding: 13px 30px;
+        font-size: 18px;
+        line-height: 1.1; 
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        @media #{$lg} {
+            border: 1px solid $gray-5;
+            background-color: $gray-5;
+        }
+    }
+}

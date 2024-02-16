@@ -1,0 +1,63 @@
+.error-page {
+    padding: 240px 0 137px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: $black-0;
+    @media #{$lg} {
+        padding: 180px 0 130px;
+    }
+    @media #{$sm} {
+        padding: 130px 0;
+    }
+    @media #{$esm} {
+        padding: 130px 0 80px;
+    }
+    &__title {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 186px;
+        line-height: 1;
+        position: relative;
+        & span {
+            display: inline-block;
+            width: 142px;
+            height: 277px;
+            background: url('../img/404.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: translateY(60px);
+            @media #{$sm} {
+                width: 142px;
+                height: 192px;
+            }
+        }
+        @media #{$sm} {
+            font-size: 100px;
+        }
+    }
+    &__subtitle {
+        margin-top: 46px;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.3;
+    }
+    &__text {
+        margin: 0 auto;
+        max-width: 555px;
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+    &__btn {
+        margin-top: 36px;
+        display: inline-block;
+        @include hover {
+            background-color: $gray-d;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+// fonts
+$futura: 'Futura PT',Helvetica,Arial,sans-serif;
+
+// media
+$xxl: 'screen and (max-width: 1600px)'; //до 1400
+$xl: 'screen and (max-width: 1400px)'; //до 1200
+$lg: 'screen and (max-width: 1260px)'; // до 992
+$md: 'screen and (max-width: 992px)'; // до 768 
+$sm: 'screen and (max-width: 768px)'; //до 576
+$esm: 'screen and (max-width: 540px)'; 
+ 
+//colors
+$white: #ffffff;
+$black: #090909;
+$black-0: #000000;
+$crimson: #973964;
+$gray: #7B7B7B;
+$gray-d: #363636;
+$gray-l: #F2F2F2;
+$gray-5: #555555;
+
+
+//typography
+$table-header-background-color: #E6E6E6;
+$table-header-color: #000000;
+$table-border-color: #363636;
+$table-border-size: 2px;
+$table-border-style: solid;
+
+$color-text-base: #000000;
+$market-color: #000000;
+$title-mobile-fs-base: 1.125rem;
+$title-mobile-fs-step: 0.375vw;
+$title-fs-start: 2.5em;
+$title-fs-step: 0.25em;
+$blockquote-color-base: $color-text-base;
+$blockquote-color-decorative: $table-header-background-color;
+
+$box-text-size: 936px;
+$box-text-size-2xl: 1054px; 
+
+//z-index
+$ui-index-1: 1; // для элементов наползающих друг на друга
+$ui-index-2: 2; // для элементов наползающих друг на друга
+$ui-index-3: 3; // для элементов наползающих друг на друга
+$ui-index-4: 4; // затемнения
+$ui-index-5: 5; // сайдбары
+$ui-index-6: 6; // модальные окна
+$ui-index-10: 10; // элементы перекрывающие все

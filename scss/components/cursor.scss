@@ -1,0 +1,68 @@
+#circularcursor {
+  background: $crimson;
+  border: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: $ui-index-10;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s linear, height 0.3s linear;
+  pointer-events: none;
+  @media #{$md} {
+    display: none;
+  }
+  &.left-arrow,
+  &.right-arrow,
+  &.up-arrow,
+  &.down-arrow {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background: $crimson;
+    background-image: url("../img/icons/arrow-slider.svg");
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+  }
+  &.right-arrow {
+    transform: rotate(180deg);
+  }
+  &.up-arrow {
+    transform: rotate(90deg);
+  }
+  &.down-arrow {
+    transform: rotate(270deg);
+  }
+  &.left-arrow-clinic,
+  &.right-arrow-clinic {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background: $crimson;
+    background-image: url("../img/icons/arrow-slider.svg");
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+  }
+  &.right-arrow-clinic {
+    transform: rotate(180deg);
+  }
+  &.close {
+    width: 66px;
+    height: 66px;
+    background-image: url("../img/icons/close.svg");
+    background-position: center;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    transition: all 0.2s linear;
+  }
+  &.eye {
+    width: 66px;
+    height: 66px;
+    background-image: url("../img/icons/eye.svg");
+    background-position: center;
+    background-size: 33px;
+    background-repeat: no-repeat;
+  }
+}

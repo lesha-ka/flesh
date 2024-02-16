@@ -1,0 +1,172 @@
+@property --r {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --r2 {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --x {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+.animate-btn {
+  position: relative;
+  border-radius: 45px;
+  cursor: none;
+  width: 165px;
+  height: 55px;
+  flex: 0 0 165px;
+  @media #{$lg} {
+    width: auto;
+    height: auto;
+    flex: unset;
+    border-radius: 0;
+  }
+  & .border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 3px solid $gray;
+    border-radius: 45px;
+    opacity: .2;
+  }
+  & button {
+    cursor: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    border-radius: 29px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    outline: 0;
+    background: transparent;
+    text-transform: uppercase;
+    color: $white;
+    letter-spacing: 1.8px;
+    font-size: 18px;
+    font-weight: 400;
+    z-index: $ui-index-2;
+    @include hover {
+      background-color: $gray-d;
+    }
+    .popup-form & {
+      color: $black;
+      @media #{$lg} {
+        color: $white;
+      }
+      @include hover {
+        background-color: $gray;
+        color: $white;
+      }
+    }
+    @media #{$lg} {
+      position: initial;
+      padding: 16px 36px;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 1.1;
+      letter-spacing: 1.4px;
+      color: $white;
+      background-color: $gray-5;
+      transform: none;
+    }
+  }
+}
+
+.animate-btn {
+  background: conic-gradient(
+    from calc(var(--r2) - 80deg) at var(--x) 26px,
+    #000 0%,
+    #fff 20%,
+    #000 25%
+  );
+  animation: -0.64s rotating2 3s linear infinite, -0.64s x 3s linear infinite;
+  .popup-form & {
+    background: conic-gradient(
+      from calc(var(--r2) - 80deg) at var(--x) 26px,
+      #fff 0%,
+      #adadad 20%,
+      #fff 25%
+    );
+    @media #{$lg} {
+        background: none;
+    }
+  }
+  @media #{$lg} {
+    background: none;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    top: 3px;
+    left: 3px;
+    border-radius: 45px;
+    background-color: $black-0;
+    z-index: $ui-index-1;
+    .popup-form & {
+      background-color: $white;
+    }
+    @media #{$lg} {
+      display: none;
+    }
+  }
+   @include hover {
+    background: none;
+    .popup-form & {
+      background: none;
+    }
+    &::after {
+      background-color: transparent;
+    }
+  }
+}
+@keyframes x {
+  /* w:h === 3:1 */
+  /* with a 20px x-margin */
+  0% {
+    --x: 20px;
+  }
+  /* 3/(3+3.14) * 50% */
+  31.42996742% {
+    --x: 158px;
+  }
+  50% {
+    --x: 158px;
+  }
+  /* 50% + 24.4% */
+  82.4% {
+    --x: 20px;
+  }
+  100% {
+    --x: 20px;
+  }
+}
+
+@keyframes rotating2 {
+  0% {
+    --r2: 0deg;
+  }
+  32.82275711% {
+    --r2: 0deg;
+  }
+  50% {
+    --r2: 180deg;
+  }
+  82.82275711% {
+    --r2: 180deg;
+  }
+  100% {
+    --r2: 360deg;
+  }
+}
